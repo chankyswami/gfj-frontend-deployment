@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: gfj-frontend
-          image: docker.io/chankyswami/gfj-frontend:068a680
+          image: docker.io/chankyswami/gfj-frontend:6205dfe
           ports:
             - containerPort: 80
