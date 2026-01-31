@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: gfj-frontend=chankyswami/gfj-frontend
-    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
-    argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:^git-.*
+    argocd-image-updater.argoproj.io/gfj-frontend.update-strategy: latest
+    argocd-image-updater.argoproj.io/gfj-frontend.allow-tags: regexp:^git-.*
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
