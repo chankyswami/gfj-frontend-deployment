@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: gfj-frontend
-          image: chanky/gfj-frontend:git-initial
+          image: chankyswami/gfj-frontend:git-initial
           ports:
             - containerPort: 80
