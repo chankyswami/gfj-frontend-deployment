@@ -1,0 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: chankyswami/gfj-frontend
+  tag: git-01a129e
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
