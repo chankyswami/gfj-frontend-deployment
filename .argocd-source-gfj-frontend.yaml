@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.repository
+    value: chankyswami/gfj-frontend
+    forcestring: true
+  - name: image.tag
+    value: git-84bc729
+    forcestring: true
