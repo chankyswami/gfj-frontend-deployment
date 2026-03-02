@@ -1,0 +1,12 @@
+replicaCount: 3
+
+image:
+  tag: git-locked   # controlled promotion later
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 512Mi
+  limits:
+    cpu: 500m
+    memory: 1Gi

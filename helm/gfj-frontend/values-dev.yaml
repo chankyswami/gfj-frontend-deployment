@@ -1,0 +1,9 @@
+replicaCount: 1
+
+image:
+  tag: git-latest   # image updater will override
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
