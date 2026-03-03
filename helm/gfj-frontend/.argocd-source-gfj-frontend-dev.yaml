@@ -4,5 +4,5 @@ helm:
     value: chankyswami/gfj-frontend
     forcestring: true
   - name: image.tag
-    value: git-84bc729
+    value: git-5110189
     forcestring: true
