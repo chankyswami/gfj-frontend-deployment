@@ -7,3 +7,9 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
+ingress:
+  enabled: true
+  host: gfj-dev.example.com
+  tls:
+    enabled: true
+    secretName: gfj-dev-tls

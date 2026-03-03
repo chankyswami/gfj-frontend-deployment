@@ -10,3 +10,10 @@ resources:
   limits:
     cpu: 500m
     memory: 1Gi
+
+ingress:
+  enabled: true
+  host: gfj.example.com
+  tls:
+    enabled: true
+    secretName: gfj-prod-tls

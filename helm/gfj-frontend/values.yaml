@@ -12,4 +12,7 @@ service:
 container:
   port: 80
 
+ingress:
+  enabled: false
+
 resources: {}
