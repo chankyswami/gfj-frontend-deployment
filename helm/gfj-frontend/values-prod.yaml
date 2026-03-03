@@ -1,19 +1,19 @@
-replicaCount: 3
+replicaCount: 2
 
 image:
-  tag: git-locked   # controlled promotion later
+  tag: git-01a129e   # stable tag .controlled promotion later
 
 resources:
   requests:
-    cpu: 300m
-    memory: 512Mi
+    cpu: 100m
+    memory: 128Mi
   limits:
-    cpu: 500m
-    memory: 1Gi
+    cpu: 100m
+    memory: 256Gi
 
 ingress:
   enabled: true
-  host: gfj.example.com
+  host: gfj-prod.company.com
   tls:
     enabled: true
-    secretName: gfj-prod-tls
+    secretName: gfj-dev-tls
