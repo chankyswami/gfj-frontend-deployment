@@ -9,7 +9,7 @@ resources:
     memory: 128Mi
 ingress:
   enabled: true
-  host: gfj-dev.example.com
+  host: gfj-dev.company.com
   tls:
     enabled: true
     secretName: gfj-dev-tls
