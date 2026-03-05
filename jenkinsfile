@@ -1,0 +1,62 @@
+pipeline {
+  agent any
+
+  environment {
+    GIT_REPO_URL = 'https://github.com/chankyswami/gfj-frontend-deployment.git'
+    GIT_BRANCH  = 'main'
+    DEV_VALUES  = 'helm/gfj-frontend/values-dev.yaml'
+    PROD_VALUES = 'helm/gfj-frontend/values-prod.yaml'
+    GIT_CREDS   = 'jenkins-token-github'
+  }
+
+  stages {
+
+    stage('Checkout Repo') {
+      steps {
+        git branch: env.GIT_BRANCH,
+            url: env.GIT_REPO_URL,
+            credentialsId: env.GIT_CREDS
+      }
+    }
+
+    stage('Read DEV Image Tag') {
+      steps {
+        script {
+          DEV_TAG = sh(
+            script: "yq '.image.tag' ${DEV_VALUES}",
+            returnStdout: true
+          ).trim()
+
+          echo "DEV image tag: ${DEV_TAG}"
+        }
+      }
+    }
+
+    stage('Update PROD Values') {
+      steps {
+        sh """
+          yq -i '.image.tag = "${DEV_TAG}"' ${PROD_VALUES}
+        """
+      }
+    }
+
+    stage('Commit & Push') {
+      steps {
+        sh """
+          git config user.email "c.innovator@gmail.com"
+          git config user.name  "chankyswami"
+
+          git add ${PROD_VALUES}
+          git commit -m "Promote ${DEV_TAG} from DEV to PROD"
+          git push origin ${GIT_BRANCH}
+        """
+      }
+    }
+  }
+
+  post {
+    success {
+      echo "✅ Promotion successful. Sync PROD app in Argo CD."
+    }
+  }
+}
