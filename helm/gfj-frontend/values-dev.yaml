@@ -1,15 +1,33 @@
 replicaCount: 1
 
 image:
-  tag: git-latest   # image updater will override
+  repository: chankyswami/gfj-frontend
+  tag: git-latest
 
 resources:
   requests:
     cpu: 100m
     memory: 128Mi
+
 ingress:
   enabled: true
   host: gfj-dev.company.com
   tls:
     enabled: true
     secretName: gfj-dev-tls
+
+# replicaCount: 1
+
+# image:
+#   tag: git-latest   # image updater will override
+
+# resources:
+#   requests:
+#     cpu: 100m
+#     memory: 128Mi
+# ingress:
+#   enabled: true
+#   host: gfj-dev.company.com
+#   tls:
+#     enabled: true
+#     secretName: gfj-dev-tls
